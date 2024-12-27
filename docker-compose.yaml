@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  react:
+    build:
+      context: ./react
+    ports:
+      - "8000:80"
+    networks:
+      - compose-network
+
+  express:
+    build:
+      context: ./express
+    ports:
+      - "8080:8080"
+    networks:
+      - compose-network
+
+networks:
+  compose-network:
+    driver: bridge
